@@ -16,6 +16,8 @@ try
     Console.WriteLine(eventoUno.ToString());
     Console.WriteLine(eventoUno.StampaInfo());
 
+
+
     while (true)
     {
         Console.WriteLine("Vuoi disdire dei posti? (si-no)");

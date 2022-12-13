@@ -15,7 +15,7 @@ namespace GestoreEventi
         public ProgrammaEventi(string titolo, List<Evento> eventi)
         {
             this.titolo = titolo;
-            this.eventi = eventi;
+            
         }
 
         public void aggiungiEvento(Evento evento)
@@ -25,17 +25,17 @@ namespace GestoreEventi
 
         public List<Evento> EventiInData(DateTime data)
         {
-            List<Evento> ritorno;
+            List<Evento> ritorno = new List<Evento>(); ;
 
             for (int i = 0; i < eventi.Count; i++)
             {
-                DateTime dataEvento = eventi[i].GetData;
+                DateTime dataEvento = eventi[i].GetData();
                 if (dataEvento == data)
                 {
                     ritorno.Add(eventi[i]);
                 }
             }
-
+            return ritorno;
 
         }
 
@@ -45,10 +45,26 @@ namespace GestoreEventi
 
             foreach (Evento elemento in eventi)
             {
-                ritorno += elemento.ToString();
+                ritorno += (elemento.ToString() + "\n");
             }
 
             return ritorno;
+        }
+
+        public int QuantiEventi()
+        {
+            return this.eventi.Count;
+        }
+
+        public void SvuotaLista()
+        {
+            eventi.Clear();
+        }
+
+        public void StampaTutto()
+        {
+            Console.WriteLine("Titolo: " + this.titolo);
+            Console.WriteLine(stringaEventi(eventi));
         }
        
     }
