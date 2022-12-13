@@ -61,7 +61,14 @@ namespace GestoreEventi
         {
             SetTitolo(titolo);
             SetData(data);
-            this.capienzaMax = capienzaMax;
+            if(capienzaMax < 0)
+            {
+                throw new ArgumentOutOfRangeException("Capienza negativa");
+            }
+            else
+            {
+                this.capienzaMax = capienzaMax;
+            } 
             this.prenotati = 0;
         }
 
@@ -103,7 +110,11 @@ namespace GestoreEventi
 
         public override string ToString()
         {
-            return "Titolo: "+ this.titolo + "\tData: " + this.data + "\nPosti totali: "+ capienzaMax + "\tPosti prenotati: "+ prenotati;
+            return this.data + "-" +this.titolo ;
+        }
+        public string StampaInfo()
+        {
+            return "Posti prenotati: " + this.prenotati + "\nPosti liberi: " + (this.capienzaMax-this.prenotati);
         }
     }
 
