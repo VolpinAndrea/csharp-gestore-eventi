@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GestoreEventi.CustomExeption;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,6 +13,9 @@ namespace GestoreEventi
         private DateTime data;
         private int capienzaMax;
         private int prenotati;
+
+        static DateTime dataOraAttuale = DateTime.Now;
+
 
         // GET
 
@@ -41,7 +45,6 @@ namespace GestoreEventi
 
         public void SetData(string data)
         {
-            DateTime dataOraAttuale = DateTime.Now;
             DateTime dataFormattata = DateTime.Parse(data);
 
             if (dataFormattata >= dataOraAttuale)
@@ -50,7 +53,7 @@ namespace GestoreEventi
             }
             else
             {
-                throw new ArgumentOutOfRangeException("Data la data inserita è già passata");
+                throw new DataPassata("Data la data inserita è già passata");
             }
         }
 
@@ -62,9 +65,46 @@ namespace GestoreEventi
             this.prenotati = 0;
         }
 
+        public void PrenotaPosti(int i)
+        {
+            if(this.data < dataOraAttuale)
+            {
+                throw new DataPassata("L'vento è già passato"); // Nel mio programma non serve ma ipoteticamente è utile e richiesta nella consegna
+
+            }
+            else if(i+this.prenotati > capienzaMax)
+            {
+                throw new ErrorePosti("Non ci sono abbastanza posti");
+
+            }
+            else
+            {
+                prenotati += i;
+            }
+        }
+
+        public void DisdiciPosti(int i)
+        {
+            if (this.data < dataOraAttuale)
+            {
+                throw new DataPassata("L'vento è già passato"); // Nel mio programma non serve ma ipoteticamente è utile e richiesta nella consegna
+
+            }
+            else if (this.prenotati - i < 0)
+            {
+                throw new ErrorePosti("Stai disdicendo troppi posti");
+
+            }
+            else
+            {
+                prenotati -= i;
+            }
+        }
+
         public override string ToString()
         {
             return "Titolo: "+ this.titolo + "\tData: " + this.data + "\nPosti totali: "+ capienzaMax + "\tPosti prenotati: "+ prenotati;
         }
     }
+
 }

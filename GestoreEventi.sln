@@ -5,6 +5,11 @@ VisualStudioVersion = 17.4.33110.190
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GestoreEventi", "GestoreEventi\GestoreEventi.csproj", "{6F4A7959-6A0E-4219-BE90-32F65FE48674}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CustomExeption", "CustomExeption", "{DF95173E-1B2C-42E4-A794-87F4510294EB}"
+	ProjectSection(SolutionItems) = preProject
+		CustomExeption.cs = CustomExeption.cs
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
