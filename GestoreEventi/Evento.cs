@@ -25,7 +25,7 @@ namespace GestoreEventi
         }
         public DateTime GetData()
         {
-            return data;
+            return this.data;
         }
         public int GetCapienzaMax()
         {
