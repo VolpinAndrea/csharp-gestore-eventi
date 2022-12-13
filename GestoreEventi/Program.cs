@@ -1,7 +1,7 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using GestoreEventi;
 using GestoreEventi.CustomExeption;
-
+/*////////////////////////////////////////////////////////////
 try
 {
     //   Evento nuovo = new Evento("Danza", "23/12/2022", 30);
@@ -75,7 +75,22 @@ static Evento CreaEvento()
     return new Evento(titolo, data, capienzaMax);
 
 }
+/////////////////////////////////////////////////////////*/
+Evento uno = new ("acqua", "22/7/2023", 200);
+Evento due = new ("terra", "25/7/2023", 500);
 
+ProgrammaEventi globo = new("globo");
+
+globo.AggiungiEvento(uno);
+globo.AggiungiEvento(due);
+globo.AggiungiEvento(new Evento("aria", "27/7/2023", 700));
+globo.AggiungiEvento(new Evento("tempesta", "27/7/2023", 900));
+
+globo.StampaTutto();
+Console.WriteLine(globo.QuantiEventi());
+
+ProgrammaEventi aiod =new globo.EventiInData("27/7/2023");
+Console.WriteLine(globo.StampaTutto());
 
 
 

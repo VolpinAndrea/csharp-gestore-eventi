@@ -110,7 +110,7 @@ namespace GestoreEventi
 
         public override string ToString()
         {
-            return this.data + "-" +this.titolo ;
+            return string.Format("{0:dd/MM/yyyy}", this.data) + "-" +this.titolo ;
         }
         public string StampaInfo()
         {

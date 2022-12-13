@@ -12,25 +12,30 @@ namespace GestoreEventi
         private string titolo;
         private List<Evento> eventi;
 
-        public ProgrammaEventi(string titolo, List<Evento> eventi)
+        public ProgrammaEventi(string titolo)
         {
             this.titolo = titolo;
-            
+            this.eventi = new List<Evento>();
+
+
         }
 
-        public void aggiungiEvento(Evento evento)
+        public void AggiungiEvento(Evento evento)
         {
             eventi.Add(evento);
         }
 
-        public List<Evento> EventiInData(DateTime data)
+        public List<Evento> EventiInData(string data)
         {
-            List<Evento> ritorno = new List<Evento>(); ;
+
+            DateTime dataFormattata = DateTime.Parse(data);
+
+            List<Evento> ritorno = new(); 
 
             for (int i = 0; i < eventi.Count; i++)
             {
                 DateTime dataEvento = eventi[i].GetData();
-                if (dataEvento == data)
+                if (dataEvento == dataFormattata)
                 {
                     ritorno.Add(eventi[i]);
                 }
