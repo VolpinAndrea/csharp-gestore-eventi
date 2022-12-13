@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
@@ -28,7 +29,7 @@ namespace GestoreEventi
         public List<Evento> EventiInData(string data)
         {
 
-            DateTime dataFormattata = DateTime.Parse(data);
+            DateTime dataFormattata = DateTime.Parse(data); // vorrei inserire qesto controllo in un if
 
             List<Evento> ritorno = new(); 
 
@@ -71,6 +72,9 @@ namespace GestoreEventi
             Console.WriteLine("Titolo: " + this.titolo);
             Console.WriteLine(stringaEventi(eventi));
         }
+
+        
        
     }
+
 }
